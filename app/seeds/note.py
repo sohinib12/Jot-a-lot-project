@@ -1,7 +1,7 @@
 from app.models import db, Note, environment, SCHEMA
 
 
-# Adds a demo user, you can add other users here if you want
+# Adds a demo notes, you can add other notes here if you want
 def seed_notes():
     note1 = Note(
         user_id=1, notebook_id=1, title="learn JS", body="start with the functions and objects and move on with loops")
@@ -30,16 +30,10 @@ def seed_notes():
     db.session.commit()
 
 
-# Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
-# have a built in function to do this. With postgres in production TRUNCATE
-# removes all the data from the table, and RESET IDENTITY resets the auto
-# incrementing primary key, CASCADE deletes any dependent entities.  With
-# sqlite3 in development you need to instead use DELETE to remove all data and
-# it will reset the primary keys for you as well.
-def undo_users():
+def undo_notes():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.notes RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM users")
+        db.session.execute("DELETE FROM notes")
 
     db.session.commit()
