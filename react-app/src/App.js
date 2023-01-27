@@ -12,6 +12,7 @@ import Notes from "./components/Notes";
 import Home from "./components/HomePage/index";
 import SideBar from "./components/Sidebar";
 import SplashLanding from "./components/SplashLanding";
+import SingleNoteView from "./components/HomePage/singleNoteView";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         <Route path="/login">
           <LoginForm />
         </Route>
+        <ProtectedRoute path="/notes/:noteId">
+          <SingleNoteView />
+        </ProtectedRoute>
         <ProtectedRoute path="/notes">
           <Notes />
         </ProtectedRoute>
