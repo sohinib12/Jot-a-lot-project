@@ -1,12 +1,8 @@
 .notes-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: 100vh;
     flex: auto;
-    position: fixed;
-    left: 200px;
-
     background-color: rgb(72, 68, 68);
 
 }
@@ -43,21 +39,36 @@
 .notes-body-actions {
     height: 60px;
     padding: 8px;
-
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
 }
 
 .notes-body-text {
-    height: 100%;
     padding: 32px;
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .body-text-area {
-    width: 100%;
-    height: 100%;
     border: none;
     background-color: var(--notes-body);
     color: aliceblue;
-    font-size: 18px;
+    font-size: 16px;
     padding: 8px;
+    flex-grow: 100;
+    outline: none;
+    margin-top: 12px;
+}
+.notes-body-title{
+    height: 40px;
+    background-color: var(--notes-body);
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    font-family: Source Sans Pro,-apple-system,system-ui,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }

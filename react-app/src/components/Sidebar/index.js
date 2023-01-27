@@ -2,15 +2,17 @@ import {  NavLink } from "react-router-dom";
 import "./sidebar.css";
 import { useDispatch } from "react-redux";
 import { createNoteThunk } from "../../store/note";
+import LogoutButton from "../auth/LogoutButton";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
 
   const createNote = (e) => {
     e.preventDefault();
+    // add nullable false to the database
     dispatch(createNoteThunk({
       title: "untitled",
-      body: "untitled",
+      body: "",
       notebook_id: 1}))
   }
 
@@ -26,6 +28,9 @@ export default function Sidebar() {
       <button onClick={createNote}> + New Note</button>
       <div>
         <NavLink to="/notebooks">Notebooks</NavLink>
+      </div>
+      <div>
+        <LogoutButton />
       </div>
     </div>
   );

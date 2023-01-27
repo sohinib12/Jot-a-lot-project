@@ -1,11 +1,32 @@
 .home-container{
-    width: 100%;
     height: 100vh;
     display: flex;
     flex: auto;
     flex-direction: column;
-    position: fixed;
-    left: 200px;
-
     background-color: black;
+    padding: 32px;
+    gap: 12px;
+}
+
+.home-welcome-title {
+    height: 40px;
+}
+
+.home-parent{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    gap: 12px;
+    height: 90%;
+}
+
+.home-notes-list {
+    background-color: #181818;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.home-scratchpad {
+    background-color: #262222;
+    padding: 12px;
+    border-radius: 8px;
 }

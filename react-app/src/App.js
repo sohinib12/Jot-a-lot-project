@@ -38,6 +38,9 @@ function App() {
         <Route path="/login">
           <LoginForm />
         </Route>
+        <Route path="/login">
+          <LoginForm />
+        </Route>
         <Route path="/sign-up">
           <SignUpForm />
         </Route>
