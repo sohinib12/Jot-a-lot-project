@@ -1,16 +1,26 @@
 import "./Notes.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { deleteNoteThunk, updateNoteThunk } from "../../store/note";
+import {deleteNoteThunk, updateNoteThunk, getNoteByIdThunk} from "../../store/note";
 import { useState, useEffect } from "react";
+// import ToDoTemplate from "./toDoTemplate";
 
-export default function NoteBody() {
+export default function NoteBody({ noteId, handleNoteDelete }) {
   const note = useSelector((state) => state.notes.singleNote);
   const [noteContent, setNoteContent] = useState("");
   const [noteTitle, setNoteTitle] = useState("");
 
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    if (noteId === null) {
+      console.log('clear the body')
+      setNoteContent("");
+      setNoteTitle("");
+    }
+    if (noteId) dispatch(getNoteByIdThunk(noteId)).then(() => {});
+  }, [noteId]);
 
   useEffect(() => {
     setNoteContent(note.body);
@@ -32,7 +42,8 @@ export default function NoteBody() {
     e.preventDefault();
     dispatch(deleteNoteThunk(note.id)).then(() => {
       console.log("deleted");
-      history.push("/notes");
+      handleNoteDelete();
+      // history.push("/notes");
     });
   };
 
@@ -41,7 +52,7 @@ export default function NoteBody() {
       {Object.keys(note).length > 0 && (
         <>
           <div className="notes-body-actions">
-            <button onClick={handleEdit}>save</button>
+            <button onClick={handleEdit}>Save</button>
             <button onClick={handleDelete}>Delete</button>
           </div>
           <div className="notes-body-text">
@@ -58,6 +69,7 @@ export default function NoteBody() {
               onChange={(e) => setNoteContent(e.target.value)}
             ></textarea>
           </div>
+          {/* <ToDoTemplate /> */}
         </>
       )}
     </div>

@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import Notes from "./components/Notes";
 import Home from "./components/HomePage/index";
 import SideBar from "./components/Sidebar";
+import SplashLanding from "./components/SplashLanding";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,15 +35,18 @@ function App() {
       <Switch>
         <Route path="/" exact={true}>
           <Home />
-        </Route>
         <Route path="/login">
           <LoginForm />
         </Route>
-        <Route path="/login">
-          <LoginForm />
         </Route>
         <Route path="/sign-up">
           <SignUpForm />
+        </Route>
+        {/* <Route path="/">
+          <SplashLanding />
+        </Route> */}
+        <Route path="/login">
+          <LoginForm />
         </Route>
         <ProtectedRoute path="/notes">
           <Notes />
