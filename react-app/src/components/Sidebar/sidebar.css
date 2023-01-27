@@ -1,0 +1,18 @@
+.sidebar-container {
+    position: relative;
+    left: 0;
+    background-color: #060606;
+    padding: 16px;
+    color: #fff
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    height: 80%;
+    font-family: soleil, sans-serif;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

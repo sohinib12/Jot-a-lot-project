@@ -1,0 +1,59 @@
+.home-container{
+    height: 100vh;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    background-color: black;
+    padding: 32px;
+    gap: 12px;
+}
+
+.home-welcome-title {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #fff;
+}
+
+.home-welcome-date {
+    font-size: 16px;
+    color: #fff;
+
+}
+
+.home-parent{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    gap: 12px;
+    height: 90%;
+}
+
+.home-notes-list {
+    background-color: #181818;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.home-notes-list-item {
+    border-radius: 8px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, .3);
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+    height: 80%;
+    width: 55%;
+
+    outline: 1px solid transparent;
+}
+
+.home-scratchpad {
+    background-color: #262222;
+    padding: 12px;
+    border-radius: 8px;
+}

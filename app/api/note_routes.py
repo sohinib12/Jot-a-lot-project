@@ -1,7 +1,7 @@
-from flask import Blueprint, Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import db, Note
+from app.forms import NoteForm
 
 note_routes = Blueprint('notes', __name__)
 
@@ -44,7 +44,7 @@ def create_note():
     if form.validate_on_submit():
         note = Note(
             title=form.data['title'],
-            content=form.data['content'],
+            body=form.data['body'],
             user_id=current_user.id,
             notebook_id=form.data['notebook_id']
         )
@@ -64,7 +64,7 @@ def update_note(id):
     if form.validate_on_submit():
         note = Note.query.get(id)
         note.title = form.data['title']
-        note.content = form.data['content']
+        note.body = form.data['body']
         note.notebook_id = form.data['notebook_id']
         db.session.commit()
         return note.to_dict()
