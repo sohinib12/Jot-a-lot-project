@@ -1,0 +1,48 @@
+.notebook-container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  padding: 10px;
+  background-color: #171616;
+}
+
+.notebook-header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 10px;
+
+}
+
+.notebook-number {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 200;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notebook-number button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 12px;
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.notebook-number button:hover {
+  background-color: var(--green);
+}
+
+.notebook-table {
+
+  height: 80vh;
+  padding: 10px;
+
+}

@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 export default function Home() {
   const user = useSelector((state) => state.session.user);
 
-  const notes = useSelector((state) => Object.values(state.notes.allNotes));
+  let notes = useSelector((state) => Object.values(state.notes.allNotes));
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -23,6 +23,10 @@ export default function Home() {
       history.push(`/notes/${note.id}`);
     });
   };
+  // sort notes by date updated (most recent first)
+  notes = notes?.sort((a, b) => {
+    return new Date(b.updated_at) - new Date(a.updated_at);
+  });
 
   // display date in a readable format
   const days = [
@@ -48,7 +52,7 @@ export default function Home() {
     "NOVEMBER",
     "DECEMBER",
   ];
-  const date = new Date("2023-01-27T00:00:00.000Z");
+  const date = new Date();
   const day = days[date.getUTCDay()];
   const month = months[date.getUTCMonth()];
   const dateString = `${day}, ${date.getUTCDate()} ${month}, ${date.getUTCFullYear()}`;
@@ -56,13 +60,15 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div className="home-welcome-title"> Ready to jot down your thoughts, {user.username}?
-      <div className="home-welcome-date">{dateString}</div>
+      <div className="home-welcome-title">
+        {" "}
+        Ready to jot down your thoughts, {user.username}?
+        <div className="home-welcome-date">{dateString}</div>
       </div>
       <div className="home-parent">
         <div className="home-notes-list">
-          your notes list
-          <div>
+          <div className="home-notes-list-heading">RECENT NOTES</div>
+          <div className="home-notes-list-items-container">
             {notes.map((note) => {
               return (
                 <div
@@ -75,7 +81,7 @@ export default function Home() {
                     className="notes-list-date"
                     style={{ fontSize: "0.65em", color: "#a4a6aa" }}
                   >
-                    {new Date(note.created_at).toLocaleString([], {
+                    {new Date(note.updated_at).toLocaleString([], {
                       year: "numeric",
                       month: "numeric",
                       day: "numeric",

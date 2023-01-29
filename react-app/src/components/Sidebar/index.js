@@ -15,7 +15,6 @@ export default function Sidebar() {
       <div>
         <NavLink to="/notes">Notes</NavLink>
       </div>
-
       <div>
         <NavLink to="/notebooks">Notebooks</NavLink>
       </div>
