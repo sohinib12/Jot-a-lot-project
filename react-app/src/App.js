@@ -13,6 +13,7 @@ import Home from "./components/HomePage/index";
 import SideBar from "./components/Sidebar";
 import SplashLanding from "./components/SplashLanding";
 import SingleNoteView from "./components/HomePage/singleNoteView";
+import NoteBook from "./components/Notebook";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,11 +50,17 @@ function App() {
         <Route path="/login">
           <LoginForm />
         </Route>
+        {/* <ProtectedRoute path="/notebook">
+          <NoteBook />
+        </ProtectedRoute> */}
         <ProtectedRoute path="/notes/:noteId">
           <SingleNoteView />
         </ProtectedRoute>
         <ProtectedRoute path="/notes">
           <Notes />
+        </ProtectedRoute>
+        <ProtectedRoute path="/notebooks">
+          <NoteBook />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

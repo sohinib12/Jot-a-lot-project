@@ -1,8 +1,11 @@
-
-import "../Notes/Notes.css";
+import "./home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import {deleteNoteThunk, updateNoteThunk, getNoteByIdThunk} from "../../store/note";
+import {
+  deleteNoteThunk,
+  updateNoteThunk,
+  getNoteByIdThunk,
+} from "../../store/note";
 import { useState, useEffect } from "react";
 // import ToDoTemplate from "./toDoTemplate";
 
@@ -10,13 +13,13 @@ export default function SingleNoteView() {
   const note = useSelector((state) => state.notes.singleNote);
   const [noteContent, setNoteContent] = useState("");
   const [noteTitle, setNoteTitle] = useState("");
-    const { noteId } = useParams();
+  const { noteId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     if (noteId === null) {
-      console.log('clear the body')
+      console.log("clear the body");
       setNoteContent("");
       setNoteTitle("");
     }
@@ -43,34 +46,56 @@ export default function SingleNoteView() {
     e.preventDefault();
     dispatch(deleteNoteThunk(note.id)).then(() => {
       console.log("deleted");
-      // history.push("/notes");
+      history.push("/");
     });
   };
 
   return (
-    <div className="notes-body">
-      {Object.keys(note).length > 0 && (
-        <>
-          <div className="notes-body-actions">
-            <button onClick={handleEdit}>Save</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-          <div className="notes-body-text">
-            <input
-              className="notes-body-title"
-              value={noteTitle}
-              placeholder="Title"
-              onChange={(e) => setNoteTitle(e.target.value)}
-            ></input>
-            <textarea
-              className="body-text-area"
-              value={noteContent}
-              placeholder="Take a note..."
-              onChange={(e) => setNoteContent(e.target.value)}
-            ></textarea>
-          </div>
-        </>
-      )}
+    <div className="single-note-container-root">
+      <div className="single-note-body-actions">
+        <button onClick={handleEdit}>Save</button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
+      <div className="single-note-body-text">
+        <input
+          className="single-note-body-title"
+          value={noteTitle}
+          placeholder="Title"
+          onChange={(e) => setNoteTitle(e.target.value)}
+        ></input>
+        <textarea
+          className="single-note-body-text-area"
+          value={noteContent}
+          placeholder="Take a note..."
+          onChange={(e) => setNoteContent(e.target.value)}
+        ></textarea>
+      </div>
     </div>
+    // <div className="single-note-main-container">
+    //   <div className="single-note-body">
+    //     {Object.keys(note).length > 0 && (
+    //       <>
+    //         <div className="single-note-body-actions">
+    //           <button onClick={handleEdit}>Save</button>
+    //           <button onClick={handleDelete}>Delete</button>
+    //         </div>
+    //         <div className="single-note-body-text">
+    //           <input
+    //             className="single-note-body-title"
+    //             value={noteTitle}
+    //             placeholder="Title"
+    //             onChange={(e) => setNoteTitle(e.target.value)}
+    //           ></input>
+    //           <textarea
+    //             className="single-note-body-text-area"
+    //             value={noteContent}
+    //             placeholder="Take a note..."
+    //             onChange={(e) => setNoteContent(e.target.value)}
+    //           ></textarea>
+    //         </div>
+    //       </>
+    //     )}
+    //   </div>
+    // </div>
   );
 }
