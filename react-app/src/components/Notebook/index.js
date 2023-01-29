@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllNotebooksThunk } from "../../store/notebook";
+import { getAllNotebooksThunk } from "../../store/noteBook";
 import "./Notebook.css";
 import NotebookTable from "./table";
 // import { useModal } from "./Modal";
