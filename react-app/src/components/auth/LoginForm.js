@@ -26,6 +26,11 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demoLogin = () => {
+    setEmail('pickle@aa.io');
+    setPassword('password');
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -57,6 +62,9 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+      </div>
+      <div>
+        <button type='button' onClick={demoLogin}>Demo User</button>
       </div>
     </form>
   );

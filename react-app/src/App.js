@@ -1,20 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-import { authenticate } from './store/session';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import LoginForm from "./components/auth/LoginForm";
+import SignUpForm from "./components/auth/SignUpForm";
+import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UsersList from "./components/UsersList";
+import User from "./components/User";
+import { authenticate } from "./store/session";
+import Notes from "./components/Notes";
+import Home from "./components/HomePage/index";
+import SideBar from "./components/Sidebar";
+import SplashLanding from "./components/SplashLanding";
+import SingleNoteView from "./components/HomePage/singleNoteView";
+import NoteBook from "./components/Notebook";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -26,23 +32,36 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
+      <SideBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        <Route path="/" exact={true}>
+          <Home />
+        <Route path="/login">
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        </Route>
+        <Route path="/sign-up">
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+        {/* <Route path="/">
+          <SplashLanding />
+        </Route> */}
+        <Route path="/login">
+          <LoginForm />
         </Route>
+        {/* <ProtectedRoute path="/notebook">
+          <NoteBook />
+        </ProtectedRoute> */}
+        <ProtectedRoute path="/notes/:noteId">
+          <SingleNoteView />
+        </ProtectedRoute>
+        <ProtectedRoute path="/notes">
+          <Notes />
+        </ProtectedRoute>
+        <ProtectedRoute path="/notebooks">
+          <NoteBook />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

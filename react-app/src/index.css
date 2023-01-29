@@ -1,1 +1,16 @@
 /* TODO Add site wide styles */
+/* https://brandpalettes.com/evernote-colors/ */
+#root{
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
+    color: var(--white);
+    --green:  #00A82D;
+    --black: #000;
+    --white: #fff;
+    --grey-light: #7b868a;
+    --grey-dark:#525e61;
+    --notes-list: #1a1a1a;
+    --notes-body: #262626;
+}
+body{ margin: 0px;}
+button{border-radius: 4px;}
