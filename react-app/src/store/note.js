@@ -153,7 +153,6 @@ export default function noteReducer(state = initialState, action) {
     case UPDATE_NOTE:
       newState = { ...state.allNotes };
       newState[action.payload.id] = action.payload;
-      console.log(newState)
       return {
         ...state,
         allNotes: newState,

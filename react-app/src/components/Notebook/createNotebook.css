@@ -1,0 +1,64 @@
+.create-notebook-main-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 16px;
+    background-color: #171616;
+    gap: 12px
+}
+
+.create-notebook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 8px;
+}
+.create-notebook-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    padding: 8px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.create-notebook-textarea {
+    height: 200px;
+    padding: 8px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.create-notebook-textarea input {
+    height: 40px;
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #0d0d0d;
+    color: var(--white);
+}
+
+.create-notebook-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.create-notebook-actions button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 8px;
+    outline: none;
+
+}
+
+.create-notebook-actions button:hover {
+    background-color: var(--green);
+  }

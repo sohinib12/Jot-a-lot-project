@@ -59,13 +59,13 @@ def update_note(id):
     """
     Update a note
     """
+    note = Note.query.get(id)
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        note = Note.query.get(id)
         note.title = form.data['title']
         note.body = form.data['body']
-        note.notebook_id = form.data['notebook_id']
+        # note.notebook_id = form.data['notebook_id']
         db.session.commit()
         return note.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

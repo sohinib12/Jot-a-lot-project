@@ -7,6 +7,8 @@ export default function NotesList({
   handleNoteClick,
   addNewNote,
   selectedNotedId,
+  noteBookName,
+  notebookId,
 }) {
   const dispatch = useDispatch();
 
@@ -16,17 +18,21 @@ export default function NotesList({
       createNoteThunk({
         title: "untitled",
         body: "",
-        notebook_id: 1,
+        notebook_id: notebookId,
       })
     ).then((data) => {
       addNewNote(data.id);
     });
   };
 
+  notes = notes.sort((a,b) => {
+    return new Date(b.created_at) - new Date(a.created_at)
+  })
+
   return (
     <div>
       <div className="notes-list-header">
-        <h2>Notes List</h2>
+        <h2>{noteBookName}</h2>
         <div className="notes-list-actions">
           <button onClick={handleNewNote}>+</button>
         </div>

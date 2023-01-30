@@ -1,7 +1,6 @@
 .notebook-container {
   display: flex;
   flex-direction: column;
-  height: 95vh;
   padding: 10px;
   background-color: #171616;
 }
@@ -32,8 +31,7 @@
   font-size: 12px;
   padding: 8px;
   outline: none;
-  cursor: pointer;
-  text-transform: uppercase;
+
 }
 
 .notebook-number button:hover {
@@ -41,8 +39,43 @@
 }
 
 .notebook-table {
-
   height: 80vh;
   padding: 10px;
+  overflow: auto;
 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  /* border-bottom: 1px solid #f5f5f5; */
+}
+
+th{
+  background-color: #181616;
+}
+
+tr:hover {
+  background-color: #333333;
+}
+
+/* .expanded {
+  background-color: #f5f5f5;
+} */
+
+.child-table {
+  width: 100%;
+  margin-left: 20px;
+}
+
+table tr:nth-child(even) {
+  background-color: #181616;
+}
+table tr:nth-child(odd) {
+  background-color: #262626;
 }
