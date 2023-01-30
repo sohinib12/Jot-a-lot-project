@@ -10,10 +10,10 @@ export default function Sidebar() {
     <div className="sidebar-container">
       <div>sidebar</div>
       <div>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/home">Home</NavLink>
       </div>
       <div>
-        <NavLink to="/notes">Notes</NavLink>
+        <NavLink to="/notebook/default">Notes</NavLink>
       </div>
       <div>
         <NavLink to="/notebooks">Notebooks</NavLink>

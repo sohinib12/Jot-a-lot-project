@@ -33,33 +33,33 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      <SideBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <Home />
         <Route path="/login">
           <LoginForm />
         </Route>
-        </Route>
+        <ProtectedRoute path="/home" exact={true}>
+          <SideBar />
+          <Home />
+        </ProtectedRoute>
         <Route path="/sign-up">
           <SignUpForm />
         </Route>
         {/* <Route path="/">
           <SplashLanding />
         </Route> */}
-        <Route path="/login">
-          <LoginForm />
-        </Route>
         {/* <ProtectedRoute path="/notebook">
           <NoteBook />
         </ProtectedRoute> */}
         <ProtectedRoute path="/notes/:noteId">
+          <SideBar />
           <SingleNoteView />
         </ProtectedRoute>
-        <ProtectedRoute path="/notes">
+        <ProtectedRoute path="/notebook/:notebookId">
+          <SideBar />
           <Notes />
         </ProtectedRoute>
         <ProtectedRoute path="/notebooks">
+          <SideBar />
           <NoteBook />
         </ProtectedRoute>
       </Switch>

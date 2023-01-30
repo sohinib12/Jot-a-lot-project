@@ -3,7 +3,7 @@
     flex-direction: row;
     height: 100vh;
     flex: auto;
-    background-color: rgb(72, 68, 68);
+    background-color: #000000;
 
 }
 
@@ -11,6 +11,7 @@
     width: 20%;
     background-color: var(--notes-list);
     color: white;
+    overflow: auto;
 }
 
 .notes-list-note {
@@ -175,3 +176,49 @@
     .todo-item button:hover {
         background-color: var(--green);
     } */
+
+    /* delete-not-modal css */
+    .delete-note-main-container {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        padding: 16px;
+        background-color: #171616;
+        gap: 12px
+    }
+
+    .delete-note-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 8px;
+    }
+    .delete-note-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 20px;
+        padding: 8px;
+        font-size: 12px;
+        opacity: 0.6;
+    }
+
+    .delete-note-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .delete-note-actions button {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 12px;
+        padding: 8px;
+        outline: none;
+
+    }
+
+    .delete-note-actions button:hover {
+        background-color: var(--green);
+      }
