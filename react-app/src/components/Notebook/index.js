@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllNotebooksThunk } from "../../store/noteBook";
 import "./Notebook.css";
 import NotebookTable from "./table";
-// import { useModal } from "./Modal";
+import { useModal} from "../../context/Modal";
+import CreateNotebook from "./createNotebook";
 
 export default function NoteBook() {
-  const notebooks = useSelector((state) =>
-    Object.values(state.notebooks.allNotebooks)
-  );
+  const {setModalContent} = useModal();
+  const notebooks = useSelector((state) =>state.notebooks.allNotebooks);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllNotebooksThunk());
@@ -16,8 +17,12 @@ export default function NoteBook() {
 
   const createNotebook = (e) => {
     e.preventDefault();
-    // setModalContent(<AddNotebook />);
+    setModalContent(<CreateNotebook />);
   };
+
+  const noteDelete = (noteId) => {
+    dispatch(getAllNotebooksThunk())
+  }
 
   return (
     <div className="notebook-container">
@@ -32,7 +37,7 @@ export default function NoteBook() {
       </div>
       <hr style={{ width: "100%" }} />
       <div className="notebook-table">
-        <NotebookTable notebooks={notebooks} />
+        <NotebookTable notebooks={notebooks} noteDelete={noteDelete}/>
       </div>
     </div>
   );

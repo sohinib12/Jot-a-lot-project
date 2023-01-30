@@ -11,6 +11,9 @@
     --grey-dark:#525e61;
     --notes-list: #1a1a1a;
     --notes-body: #262626;
+    font-family: monospace, sans-serif;
 }
 body{ margin: 0px;}
-button{border-radius: 4px;}
+button{border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;}

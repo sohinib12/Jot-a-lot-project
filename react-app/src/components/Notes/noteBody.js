@@ -1,11 +1,15 @@
 import "./Notes.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {deleteNoteThunk, updateNoteThunk, getNoteByIdThunk} from "../../store/note";
+import { getNoteByIdThunk } from "../../store/note";
 import { useState, useEffect } from "react";
+import DeleteNoteModal from "./deleteNoteModal";
+import { useModal } from "../../context/Modal";
+import { updateNoteFromNotebookThunk } from "../../store/noteBook";
 // import ToDoTemplate from "./toDoTemplate";
 
-export default function NoteBody({ noteId, handleNoteDelete }) {
+export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
+  const { setModalContent } = useModal();
   const note = useSelector((state) => state.notes.singleNote);
   const [noteContent, setNoteContent] = useState("");
   const [noteTitle, setNoteTitle] = useState("");
@@ -15,7 +19,6 @@ export default function NoteBody({ noteId, handleNoteDelete }) {
 
   useEffect(() => {
     if (noteId === null) {
-      console.log('clear the body')
       setNoteContent("");
       setNoteTitle("");
     }
@@ -35,16 +38,18 @@ export default function NoteBody({ noteId, handleNoteDelete }) {
       body: noteContent,
       title: noteTitle,
     };
-    dispatch(updateNoteThunk(editedNote));
+    dispatch(updateNoteFromNotebookThunk(notebookId, editedNote));
   };
 
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteNoteThunk(note.id)).then(() => {
-      console.log("deleted");
-      handleNoteDelete();
-      // history.push("/notes");
-    });
+    setModalContent(
+      <DeleteNoteModal
+        notebookId={notebookId}
+        noteId={note.id}
+        onDeleteCallback={handleNoteDelete}
+      />
+    );
   };
 
   return (
@@ -53,7 +58,7 @@ export default function NoteBody({ noteId, handleNoteDelete }) {
         <>
           <div className="notes-body-actions">
             <button onClick={handleEdit}>Save</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={(e) => handleDelete(e)}>Delete</button>
           </div>
           <div className="notes-body-text">
             <input
