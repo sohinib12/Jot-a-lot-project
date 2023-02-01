@@ -12,6 +12,7 @@
     padding: 5px 50px;
     z-index: 1;
     height: 60px;
+    /* box-shadow: 0 2px 10px rgb(0 0 0 / 30%) */
 }
 
 .nav-header {
@@ -23,6 +24,10 @@
 
 .splash-name {
     color: black;
+    font-size: 25px;
+    font-weight: 700;
+    /* font-family: soleil,sans-serif; */
+
 }
 
 .splash-login {
@@ -37,11 +42,39 @@
     justify-content: center;
     align-items: center;
     grid-gap: 25px;
-    gap: 25px;
+    gap: 6px;
     padding-top: 40px;
     padding-bottom: 40px;
 
 
+}
+
+.splash-top h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-family: soleil,sans-serif;
+}
+
+.splash-top h2 {
+    font-size: 24px;
+    font-weight: 350;
+    line-height: 40px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: soleil,sans-serif;
+}
+
+.splash-top > p {
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: soleil,sans-serif;
+    color: #000;
+    margin-bottom: 2%;
+}
+
+.splash-top > p:hover {
+    color: #00A82D;
 }
 
 .splash-body {
@@ -50,12 +83,59 @@
     padding: 0 30px;
 }
 
-.splash-text, .splash-txt {
+.splash-text {
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
+    width: 250px;
+}
 
+.splash-txt {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 250px;
+}
+
+.splash-text h3 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    font-family: soleil,sans-serif;
+}
+
+.splash-text h5 {
+    font-size: 16px;
+    font-weight: 350;
+    /* line-height: 40px; */
+    /* padding-bottom: 30px; */
+    text-align: center;
+    font-family: soleil,sans-serif;
+}
+
+.splash-sign-up {
+    background-color: #00A82D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 360px;
+    height: 40px;
+    letter-spacing: 1.5px;
+}
+
+.splash-sign-up:hover {
+    background-color: #50be6d;
 }
 
 
@@ -64,6 +144,26 @@
 }
 
 #logo {
-    height: 40px;
+    height: 50px;
     padding-top: 0.4em;
+}
+
+.splash-login button {
+    background-color: #00A82D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100px;
+    height: 35px;
+    letter-spacing: 1.5px;
+}
+
+.splash-login button:hover {
+    background-color: #50be6d;
 }
