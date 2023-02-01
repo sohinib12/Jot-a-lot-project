@@ -109,7 +109,7 @@ const SignUpForm = () => {
 
           <div className="error-form">
             {errors.map((error, ind) => (
-              <div key={ind}>*{error}</div>
+              <div key={ind}>* {error}</div>
             ))}
           </div>
           <div className="login-btn">
