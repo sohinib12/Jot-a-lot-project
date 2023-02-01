@@ -1,8 +1,8 @@
 /* TODO Add site wide styles */
 /* https://brandpalettes.com/evernote-colors/ */
 #root{
-    display: grid;
-    grid-template-columns: 0.15fr 1fr;
+    /* display: grid;
+    grid-template-columns: 0.15fr 1fr; */
     color: var(--white);
     --green:  #00A82D;
     --black: #000;
@@ -13,7 +13,14 @@
     --notes-body: #262626;
     font-family: monospace, sans-serif;
 }
+
+#main-components-container{
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
+}
+
 body{ margin: 0px;}
+
 button{border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;}

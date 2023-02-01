@@ -22,14 +22,14 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
       setActiveIndex(newActiveIndexes);
       return;
     }
-    newActiveIndexes.push(index)
+    newActiveIndexes.push(index);
     setActiveIndex(newActiveIndexes);
     // setActiveIndex(index === activeIndex ? null : index);
     dispatch(getNotebookByIdThunk(notebookId));
   };
 
   const handleNewNote = (e, notebookId) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(
       createNoteThunk({
         title: "untitled",
@@ -37,17 +37,21 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
         notebook_id: notebookId,
       })
     ).then((data) => {
-      history.push(`/notebook/${notebookId}`)
+      history.push(`/notebook/${notebookId}`);
     });
-  }
+  };
 
   const handleNoteDelete = (e, noteId) => {
-    e.preventDefault()
-    dispatch(deleteNoteThunk(noteId)).then(()=> {
-      noteDelete(noteId)
-    })
-  }
+    e.preventDefault();
+    dispatch(deleteNoteThunk(noteId)).then(() => {
+      noteDelete(noteId);
+    });
+  };
 
+  const viewNotebook = (e, notebookId) => {
+    e.preventDefault();
+    history.push(`/notebook/${notebookId}`);
+  };
 
   return (
     <div className="notebook-table">
@@ -75,23 +79,37 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
                     <i className="fa-solid fa-caret-right"></i>
                   )}
                 </td>
-                <td><i className="fa-solid fa-book"></i> {notebook.title}</td>
+                <td>
+                  <i className="fa-solid fa-book"></i> {notebook.title}
+                </td>
                 <td>{notebook.created_at}</td>
                 <td>{notebook.updated_at}</td>
                 <td>
-                  <button
-                  onClick={(e)=> handleNewNote(e, notebook.id)
-                  }
-                  >
+                  <button onClick={(e) => viewNotebook(e, notebook.id)}>
+                    <i className="fa-solid fa-eye"></i>
+                  </button>
+
+                  <button onClick={(e) => handleNewNote(e, notebook.id)}>
                     <i className="fa-solid fa-plus"></i>
                   </button>
                   <button
-                  onClick={(e)=> {e.preventDefault();
-                    setModalContent(<EditNotebook notebook={notebook} />)}}><i className="fa-solid fa-pen-to-square"></i></button>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setModalContent(<EditNotebook notebook={notebook} />);
+                    }}
+                  >
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>
                   <button
-                  onClick={(e)=> {e.preventDefault();
-                    setModalContent(<DeleteNotebook notebookId={notebook.id} />)}}
-                  ><i className="fa-solid fa-trash"></i></button>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setModalContent(
+                        <DeleteNotebook notebookId={notebook.id} />
+                      );
+                    }}
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
                 </td>
               </tr>
               {activeIndex.includes(index) && (
@@ -106,9 +124,11 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
                             <td>{note.updated_at}</td>
                             <td>
                               <button
-                              onClick={(e) => handleNoteDelete(e, note.id)}
-                              >delete</button>
-                              </td>
+                                onClick={(e) => handleNoteDelete(e, note.id)}
+                              >
+                                delete
+                              </button>
+                            </td>
                           </tr>
                         ))}
                       </tbody>

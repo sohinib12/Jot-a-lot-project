@@ -10,17 +10,20 @@ export default function SplashLanding() {
   return (
     <div className="splash-container">
       <div className="splash-nav">
-            <div className="nav-header">
-                <div>{" "}
-                    <img src={logo_512x512} id="logo" alt="logo" />
-                 </div>
-                <div className="splash-name">
-                    <h2>Jot-a-lot</h2>
-                </div>
-            </div>
-            <div className="splash-login">
-                <Link to="/login"><button>Login</button></Link>
-            </div>
+        <div className="nav-header">
+          <div>
+            {" "}
+            <img src={logo_512x512} id="logo" alt="logo" />
+          </div>
+          <div className="splash-name">
+            <h2>Jot-a-lot</h2>
+          </div>
+        </div>
+        <div className="splash-login">
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        </div>
       </div>
       <div className="splash-top">
         <h1>Tame your work, organize your life</h1>
@@ -63,10 +66,23 @@ export default function SplashLanding() {
         </div>
       </div>
 
-      <footer>Sohini Bonthala</footer>
+      <footer className="splash-footer">
+        <div className="leftside-footer">Evernote clone by Sohini Bonthala</div>
+        <div className="rightside-footer">
+          <a
+            className="link-footer"
+            href="https://www.linkedin.com/in/sohini-bonthala-9373b2111/"
+          >
+            <i
+              className="fa-brands fa-linkedin fa-xl"
+              href="https://github.com/sohinib12"
+            />
+          </a>
+          <a className="link-footer">
+            <i className="fa-brands fa-github fa-xl" />
+          </a>
+        </div>
+      </footer>
     </div>
   );
-}
-{
-  /* <img src={splash_section_primary_image_1} alt='Splash Image' /> */
 }

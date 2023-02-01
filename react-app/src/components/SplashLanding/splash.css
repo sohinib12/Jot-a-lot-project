@@ -1,10 +1,14 @@
+.splash-container {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 .splash-nav {
     display: flex;
     justify-content: space-between;
     position: sticky;
     width: 100%;
-    top: 0;
-    justify-content: space-between;
+    margin-top: 2%;
     padding: 5px 50px;
     z-index: 1;
     height: 60px;

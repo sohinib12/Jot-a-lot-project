@@ -41,6 +41,10 @@ export default function Notes() {
     )[0];
 
     let notes = notebook?.notes || [];
+    if (notes.length === 0) {
+      setSelectedNoteId(null);
+      return;
+    }
     setSelectedNoteId(notes[0].id);
   };
 
