@@ -34,33 +34,41 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
+        <Route path="/" exact={true}>
+          <SplashLanding />
+        </Route>
         <Route path="/login">
           <LoginForm />
         </Route>
         <ProtectedRoute path="/home" exact={true}>
-          <SideBar />
-          <Home />
+          <div id="main-components-container">
+            <SideBar />
+            <Home />
+          </div>
         </ProtectedRoute>
         <Route path="/sign-up">
           <SignUpForm />
         </Route>
-        {/* <Route path="/">
-          <SplashLanding />
-        </Route> */}
         {/* <ProtectedRoute path="/notebook">
           <NoteBook />
         </ProtectedRoute> */}
         <ProtectedRoute path="/notes/:noteId">
-          <SideBar />
-          <SingleNoteView />
+          <div id="main-components-container">
+            <SideBar />
+            <SingleNoteView />
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path="/notebook/:notebookId">
-          <SideBar />
-          <Notes />
+          <div id="main-components-container">
+            <SideBar />
+            <Notes />
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path="/notebooks">
-          <SideBar />
-          <NoteBook />
+          <div id="main-components-container">
+            <SideBar />
+            <NoteBook />
+          </div>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import { login } from "../../store/session";
+import bg from "./login_bg.jpg";
+import logo from "./navbar_logo1.png";
+import "./auth.css";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -11,6 +14,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  console.log("i am here");
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password)).then((data) => {
@@ -41,39 +45,63 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div style={{ color: "red" }}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div>
+      <div className="login-form">
+        <form className="login-container-form" onSubmit={onLogin}>
+          <div to="/">
+            <div className="login-logo">
+              <img src={logo} id="logo" alt="Jot-a-lot logo" />
+              <span id="login-logo-title">Jot-a-lot</span>
+              <div>
+                <p>Your ideas, captured and organized</p>
+              </div>
+            </div>
+          </div>
+          <div className="form-field">
+            <label htmlFor="email" className="credentials">
+              Email
+            </label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div className="form-field">
+            <label htmlFor="password" className="credentials">
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+          </div>
+          <div>
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+          </div>
+          <div className="error-form">
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className="login-bottom">
+            <p>Don't have an account ?</p>
+            <Link to="/sign-up">Create account</Link>
+            <p>or</p>
+            <button type="submit" onClick={demoLogin} className="demo-btn">
+              Demo User
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Login</button>
-      </div>
-      <div>
-        <button type="button" onClick={demoLogin}>
-          Demo User
-        </button>
-      </div>
-    </form>
+    </div>
   );
 };
 

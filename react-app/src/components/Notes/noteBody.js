@@ -13,6 +13,7 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
   const note = useSelector((state) => state.notes.singleNote);
   const [noteContent, setNoteContent] = useState("");
   const [noteTitle, setNoteTitle] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -38,7 +39,17 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
       body: noteContent,
       title: noteTitle,
     };
-    dispatch(updateNoteFromNotebookThunk(notebookId, editedNote));
+    dispatch(updateNoteFromNotebookThunk(notebookId, editedNote)).then(
+      (data) => {
+        console.log("data: ", data);
+        if (data) {
+          setErrors(data);
+        } else {
+          console.log("no errors");
+          setErrors([]);
+        }
+      }
+    );
   };
 
   const handleDelete = (e) => {
@@ -57,6 +68,9 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
       {Object.keys(note).length > 0 && (
         <>
           <div className="notes-body-actions">
+            <div className="error-form">
+              {errors || [].map((error, ind) => <div key={ind}>*{error}</div>)}
+            </div>
             <button onClick={handleEdit}>Save</button>
             <button onClick={(e) => handleDelete(e)}>Delete</button>
           </div>

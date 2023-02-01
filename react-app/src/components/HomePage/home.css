@@ -1,5 +1,5 @@
 .home-container{
-    height: 96vh;
+    height: 94vh;
     display: flex;
     flex: auto;
     flex-direction: column;
@@ -73,7 +73,7 @@
 
 ::-webkit-scrollbar {
     width: 6px;
-    background: #F5F5F5
+    background: #0a0a0a
   }
   ::-webkit-scrollbar-thumb{
     width: 4px;

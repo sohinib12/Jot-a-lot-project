@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import db, Notebook
+from app.models import db, Notebook, Note
 from app.forms import NotebookForm
 
 
@@ -106,6 +106,9 @@ def delete_notebook(id):
         return {'error': 'Unauthorized'}, 401
     if not notebook:
         return {'error': 'Notebook not found'}, 404
+    notes = notebook.notes
+    for note in notes:
+        db.session.delete(note)
     db.session.delete(notebook)
     db.session.commit()
     return {'message': 'Notebook deleted'}
