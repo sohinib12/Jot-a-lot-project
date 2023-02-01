@@ -10,17 +10,19 @@ export default function CreateNotebook() {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-    const handleCreateNotebook = (e) => {
-        e.preventDefault();
-        dispatch(createNotebookThunk(notebookName)).then((data)=> {
-          if (data) {
-            setErrorValidations(data);
-          } else {
-            setErrorValidations([]);
-            closeModal();
-          }
-        })
-    }
+  const handleCreateNotebook = (e) => {
+    console.log("getting here");
+    e.preventDefault();
+    dispatch(createNotebookThunk(notebookName)).then((data) => {
+      console.log("data", data);
+      if (data) {
+        setErrorValidations(data);
+      } else {
+        setErrorValidations([]);
+        closeModal();
+      }
+    });
+  };
 
   return (
     <div className="create-notebook-main-container">
@@ -34,11 +36,13 @@ export default function CreateNotebook() {
         Notebooks are useful for grouping notes around a common topic.
       </div>
       <div>
-      <ul className="error-li">
-            {errorValidations.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
+        <ul className="error-li">
+          {Array.isArray(errorValidations)
+            ? errorValidations.map((error) => <li key={error}>{error}</li>)
+            : Array.from(errorValidations).map((error) => (
+                <li key={error}>* {error}</li>
+              ))}
+        </ul>
       </div>
       <div className="create-notebook-textarea">
         <div>Name</div>

@@ -76,7 +76,10 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="home-scratchpad">scratch pad</div>
+        <div className="home-scratchpad">
+          scratch pad
+          {/* <ScratchPad user={user} /> */}
+          </div>
       </div>
     </div>
   );
