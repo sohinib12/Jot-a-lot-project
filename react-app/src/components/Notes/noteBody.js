@@ -9,6 +9,7 @@ import { updateNoteFromNotebookThunk } from "../../store/noteBook";
 // import ToDoTemplate from "./toDoTemplate";
 
 export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
+  console.log(noteId)
   const { setModalContent } = useModal();
   const note = useSelector((state) => state.notes.singleNote);
   const [noteContent, setNoteContent] = useState("");

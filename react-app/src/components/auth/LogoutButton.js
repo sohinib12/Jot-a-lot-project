@@ -5,17 +5,17 @@ import { useHistory } from 'react-router-dom';
 
 const LogoutButton = () => {
   const dispatch = useDispatch()
-  // const history = useHistory()
-  // const state = useSelector(state => state)
-  // const user = useSelector(console.log(state.session))
+  const history = useHistory()
+  const state = useSelector(state => state)
+  const user = useSelector(console.log(state.session))
 
 
   const onLogout = async (e) => {
     await dispatch(logout())
-    //  history.push('/')
+     return history.push('/')
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button onClick={onLogout}>Logout {user.username}</button>;
 };
 
 export default LogoutButton;

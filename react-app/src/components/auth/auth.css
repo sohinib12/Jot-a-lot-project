@@ -1,0 +1,45 @@
+/* login form */
+.login-container {
+
+}
+
+.login-container-form {
+
+}
+
+.login-logo {
+
+}
+
+#logo {
+
+}
+
+.login-logo-title {
+
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40%;
+    width: 100%;
+}
+
+.credentials {
+
+}
+
+.error-form {
+    line-height: 1.8em;
+    color: var(--green);
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login-bottom {
+    
+}

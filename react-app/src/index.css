@@ -17,3 +17,9 @@ body{ margin: 0px;}
 button{border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;}
+
+.error-li{
+    color: red;
+    font-size: 0.9rem;
+    margin: 10px 0px;
+}

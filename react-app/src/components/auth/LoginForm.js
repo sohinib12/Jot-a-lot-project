@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import { login } from "../../store/session";
+import bg from '../../images/login_bg.jpg';
+import logo from "../../images/navbar_logo1.png";
+import "./auth.css";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -41,14 +44,19 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div style={{ color: "red" }}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className="login-container">
+      <form className="login-container-form" onSubmit={onLogin}>
+      <Link to="/">
+      <div className="login-logo">
+        <img src={logo} id="logo" alt="Jot-a-lot logo" />
+        <span id="login-logo-title">Jot-a-lot</span>
+        <div>
+          <p>Your ideas, captured and organized</p>
+        </div>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
+      </Link>
+      <div className="login-box">
+        <label htmlFor="email" className="credentials">Email</label>
         <input
           name="email"
           type="text"
@@ -58,7 +66,7 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="credentials">Password</label>
         <input
           name="password"
           type="password"
@@ -66,14 +74,25 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="login-btn">Login</button>
       </div>
-      <div>
-        <button type="button" onClick={demoLogin}>
+      <div className="error-form" >
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+      <div className="login-bottom">
+        <p>Don't have an account ?</p>
+        <Link to="/sign-up">Create account</Link>
+        <p>or</p>
+        <button type="submit" onClick={demoLogin} className="demo-btn">
           Demo User
         </button>
       </div>
     </form>
+    <img src={bg} id="login-bg" alt="login background" />
+    </div>
+
   );
 };
 

@@ -57,7 +57,7 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
             <th></th>
             <th>Name</th>
             <th>Created at</th>
-            <th>Updated</th>
+            <th>Updated at</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -75,7 +75,7 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
                     <i className="fa-solid fa-caret-right"></i>
                   )}
                 </td>
-                <td>{notebook.title}</td>
+                <td><i className="fa-solid fa-book"></i> {notebook.title}</td>
                 <td>{notebook.created_at}</td>
                 <td>{notebook.updated_at}</td>
                 <td>
@@ -83,15 +83,15 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
                   onClick={(e)=> handleNewNote(e, notebook.id)
                   }
                   >
-                    add new note
+                    <i className="fa-solid fa-plus"></i>
                   </button>
                   <button
                   onClick={(e)=> {e.preventDefault();
-                    setModalContent(<EditNotebook notebook={notebook} />)}}>Edit</button>
+                    setModalContent(<EditNotebook notebook={notebook} />)}}><i className="fa-solid fa-pen-to-square"></i></button>
                   <button
                   onClick={(e)=> {e.preventDefault();
                     setModalContent(<DeleteNotebook notebookId={notebook.id} />)}}
-                  >Delete</button>
+                  ><i className="fa-solid fa-trash"></i></button>
                 </td>
               </tr>
               {activeIndex.includes(index) && (

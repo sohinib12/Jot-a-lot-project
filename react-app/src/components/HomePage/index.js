@@ -29,28 +29,10 @@ export default function Home() {
   });
 
   // display date in a readable format
-  const days = [
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
+  const days = [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY",
+    "FRIDAY", "SATURDAY",
   ];
-  const months = [
-    "JANUARY",
-    "FEBRUARY",
-    "MARCH",
-    "APRIL",
-    "MAY",
-    "JUNE",
-    "JULY",
-    "AUGUST",
-    "SEPTEMBER",
-    "OCTOBER",
-    "NOVEMBER",
-    "DECEMBER",
+  const months = [ "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER","DECEMBER",
   ];
   const date = new Date();
   const day = days[date.getUTCDay()];

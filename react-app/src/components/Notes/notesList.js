@@ -11,6 +11,7 @@ export default function NotesList({
   notebookId,
 }) {
   const dispatch = useDispatch();
+  const [errorValidations, setErrorValidations] = useState([]);
 
   const handleNewNote = (e) => {
     e.preventDefault();
@@ -21,7 +22,13 @@ export default function NotesList({
         notebook_id: notebookId,
       })
     ).then((data) => {
-      addNewNote(data.id);
+      if (data) {
+        setErrorValidations(data);
+        addNewNote(data.id);
+      } else {
+        setErrorValidations([]);
+        // closeModal();
+      }
     });
   };
 

@@ -34,6 +34,9 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
+        <Route path="/">
+          <SplashLanding />
+        </Route>
         <Route path="/login">
           <LoginForm />
         </Route>
@@ -44,9 +47,6 @@ function App() {
         <Route path="/sign-up">
           <SignUpForm />
         </Route>
-        {/* <Route path="/">
-          <SplashLanding />
-        </Route> */}
         {/* <ProtectedRoute path="/notebook">
           <NoteBook />
         </ProtectedRoute> */}
