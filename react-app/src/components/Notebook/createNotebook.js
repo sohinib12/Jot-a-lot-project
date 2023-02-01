@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createNotebookThunk } from "../../store/noteBook";
@@ -6,13 +6,19 @@ import "./createNotebook.css";
 
 export default function CreateNotebook() {
   const [notebookName, setNotebookName] = React.useState("");
+  const [errorValidations, setErrorValidations] = React.useState([]);
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
     const handleCreateNotebook = (e) => {
         e.preventDefault();
-        dispatch(createNotebookThunk(notebookName)).then(()=> {
+        dispatch(createNotebookThunk(notebookName)).then((data)=> {
+          if (data) {
+            setErrorValidations(data);
+          } else {
+            setErrorValidations([]);
             closeModal();
+          }
         })
     }
 
@@ -26,6 +32,13 @@ export default function CreateNotebook() {
       </div>
       <div className="create-notebook-info">
         Notebooks are useful for grouping notes around a common topic.
+      </div>
+      <div>
+      <ul className="error-li">
+            {errorValidations.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
       </div>
       <div className="create-notebook-textarea">
         <div>Name</div>

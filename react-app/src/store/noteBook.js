@@ -156,7 +156,7 @@ export const updateNoteFromNotebookThunk =
     if (res.ok) {
       const data = await res.json();
       dispatch(updateNoteFromNotebook(notebookId, data));
-      return data;
+      return null;
     } else if (res.status < 500) {
       const data = await res.json();
       if (data.errors) {

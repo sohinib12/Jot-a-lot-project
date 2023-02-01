@@ -11,6 +11,7 @@ export default function NotesList({
   notebookId,
 }) {
   const dispatch = useDispatch();
+  const [errorValidations, setErrorValidations] = useState([]);
 
   const handleNewNote = (e) => {
     e.preventDefault();
@@ -21,13 +22,19 @@ export default function NotesList({
         notebook_id: notebookId,
       })
     ).then((data) => {
-      addNewNote(data.id);
+      if (data) {
+        setErrorValidations(data);
+        addNewNote(data.id);
+      } else {
+        setErrorValidations([]);
+        // closeModal();
+      }
     });
   };
 
-  notes = notes.sort((a,b) => {
-    return new Date(b.created_at) - new Date(a.created_at)
-  })
+  notes = notes.sort((a, b) => {
+    return new Date(b.updated_at) - new Date(a.updated_at);
+  });
 
   return (
     <div>
@@ -47,12 +54,16 @@ export default function NotesList({
               selectedNotedId === note.id ? { backgroundColor: "#454343" } : {} // this is the conditional styling
             }
           >
-            <div className="note-title">{note.title}</div>
+            <div className="note-title">
+              {note.title.length > 50
+                ? `${note.title.slice(0, 50)}...`
+                : note.title}
+            </div>
             <div
               className="notes-list-date"
               style={{ fontSize: "0.65em", color: "#a4a6aa" }}
             >
-              {new Date(note.created_at).toLocaleString([], {
+              {new Date(note.updated_at).toLocaleString([], {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",

@@ -35,6 +35,16 @@ export default function Notes() {
   };
 
   const handleNoteDelete = () => {
+    console.log("handleNoteDelete");
+    let notebook = notebooks?.filter(
+      (notebook) => parseInt(notebook.id) === parseInt(selectedNotebookId)
+    )[0];
+
+    let notes = notebook?.notes || [];
+    if (notes.length === 0) {
+      setSelectedNoteId(null);
+      return;
+    }
     setSelectedNoteId(notes[0].id);
   };
 

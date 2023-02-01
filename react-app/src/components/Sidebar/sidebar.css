@@ -3,7 +3,11 @@
     left: 0;
     background-color: #1c1919;
     padding: 16px;
-    color: #fff
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: space-between;
 }
 
 .sidebar {

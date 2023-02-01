@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { updateNotebookThunk } from "../../store/noteBook";
@@ -7,6 +7,7 @@ import "./createNotebook.css";
 
 export default function EditNotebook({notebook}) {
   const [notebookName, setNotebookName] = React.useState("");
+  const [errorValidations, setErrorValidations] = useState([]);
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
@@ -16,8 +17,14 @@ export default function EditNotebook({notebook}) {
 
     const handleUpdateNotebook = (e) => {
         e.preventDefault();
-        dispatch(updateNotebookThunk({ id: notebook.id, title: notebookName })).then(()=> {
-            closeModal();
+        dispatch(updateNotebookThunk({ id: notebook.id, title: notebookName })).then((data)=> {
+
+            if (data) {
+              setErrorValidations(data);
+            } else {
+              setErrorValidations([]);
+              closeModal();
+            }
         })
     }
 
@@ -28,6 +35,13 @@ export default function EditNotebook({notebook}) {
         <button onClick={() => closeModal()}>
           <i className="fa-solid fa-xmark"></i>
         </button>
+      </div>
+      <div>
+      <ul className="error-li">
+            {errorValidations.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
       </div>
       <div className="create-notebook-textarea">
         <div>Name</div>
