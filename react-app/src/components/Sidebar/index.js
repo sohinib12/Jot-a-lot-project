@@ -8,22 +8,22 @@ export default function Sidebar() {
       <div className="sidebar-container">
         <div>Jot-a-lot</div>
         <div>
-          <NavLink to="/home">
+          <NavLink className="sidebar-navlink" to="/">
             <i className="fa-solid fa-house"></i> Home
           </NavLink>
         </div>
         <div>
-          <NavLink to="/notebook/default">
+          <NavLink className="sidebar-navlink" to="/notebook/default">
             <i className="fa-solid fa-note-sticky"></i> Notes
           </NavLink>
         </div>
         <div>
-          <NavLink to="/notebooks">
+          <NavLink className="sidebar-navlink" to="/notebooks">
             <i className="fa-solid fa-book"></i> Notebooks
           </NavLink>
         </div>
       </div>
-      <div style={{ marginBottom: "16px" }}>
+      <div className="sidebar-actions">
         <div>
           <LogoutButton />
         </div>

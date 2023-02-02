@@ -22,7 +22,7 @@ const LoginForm = () => {
         setErrors(data);
       } else {
         setErrors([]);
-        history.push("/home");
+        history.push("/");
       }
     });
   };
@@ -41,14 +41,14 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
 
   return (
     <div>
       <div className="login-form">
         <form className="login-container-form" onSubmit={onLogin}>
-          <div to="/">
+          <Link to="/">
             <div className="login-logo">
               <img src={logo} id="logo" alt="Jot-a-lot logo" />
               <span id="login-logo-title">Jot-a-lot</span>
@@ -56,7 +56,7 @@ const LoginForm = () => {
                 <p>Your ideas, captured and organized</p>
               </div>
             </div>
-          </div>
+          </Link>
           <div className="form-field">
             <label htmlFor="email" className="credentials">
               Email

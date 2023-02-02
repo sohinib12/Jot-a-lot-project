@@ -29,6 +29,23 @@ def get_all_notebooks():
     return {"notebooks": [notebook.to_dict() for notebook in notebooks]}
 
 
+@noteBook_routes.route('/default')
+@login_required
+def get_default_notebook():
+    """
+    Get default notebook
+    """
+    notebook = Notebook.query.filter(
+        Notebook.user_id == current_user.id, Notebook.is_default == True).first()
+
+    if not notebook:
+        return {'error': 'Notebook was not found'}, 404
+
+    return jsonify({
+        'notebookId': notebook.id,
+    })
+
+
 @noteBook_routes.route('/<int:id>')
 @login_required
 def get_one_notebook(id):
