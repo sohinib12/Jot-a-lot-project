@@ -26,7 +26,7 @@ const SignUpForm = () => {
             setErrors(data);
           } else {
             setErrors([]);
-            history.push("/home");
+            history.push("/");
           }
         }
       );

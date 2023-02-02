@@ -36,7 +36,7 @@ export default function SplashLanding() {
         <Link to="/sign-up">
           <button className="splash-sign-up">Sign up for free</button>
         </Link>
-        <Link to="/login">
+        <Link to="/login-page">
           <p>Already have an account? Log in</p>
         </Link>
       </div>

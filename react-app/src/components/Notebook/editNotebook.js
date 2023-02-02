@@ -1,32 +1,32 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { updateNotebookThunk } from "../../store/noteBook";
 import "./createNotebook.css";
 
-
-export default function EditNotebook({notebook}) {
+export default function EditNotebook({ notebook }) {
   const [notebookName, setNotebookName] = React.useState("");
   const [errorValidations, setErrorValidations] = useState([]);
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-    useEffect (() => {
-        setNotebookName(notebook.title)
-    },[notebook])
+  useEffect(() => {
+    setNotebookName(notebook.title);
+  }, [notebook]);
 
-    const handleUpdateNotebook = (e) => {
-        e.preventDefault();
-        dispatch(updateNotebookThunk({ id: notebook.id, title: notebookName })).then((data)=> {
-
-            if (data) {
-              setErrorValidations(data);
-            } else {
-              setErrorValidations([]);
-              closeModal();
-            }
-        })
-    }
+  const handleUpdateNotebook = (e) => {
+    e.preventDefault();
+    dispatch(
+      updateNotebookThunk({ id: notebook.id, title: notebookName })
+    ).then((data) => {
+      if (data) {
+        setErrorValidations(data);
+      } else {
+        setErrorValidations([]);
+        closeModal();
+      }
+    });
+  };
 
   return (
     <div className="update-notebook-main-container">
@@ -37,11 +37,11 @@ export default function EditNotebook({notebook}) {
         </button>
       </div>
       <div>
-      <ul className="error-li">
-            {errorValidations.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
+        <ul className="error-li">
+          {errorValidations.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
       </div>
       <div className="create-notebook-textarea">
         <div>Name</div>
