@@ -5,4 +5,4 @@ from wtforms.validators import DataRequired, Length
 
 class NotebookForm(FlaskForm):
     title = StringField('title', validators=[
-                        DataRequired(), Length(min=1, max=80)])
+                        DataRequired(), Length(min=1, max=50)])

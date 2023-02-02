@@ -36,10 +36,12 @@ export default function NotesList({
     return new Date(b.updated_at) - new Date(a.updated_at);
   });
 
+  const title =
+    noteBookName.length > 30 ? `${noteBookName.slice(0, 30)}...` : noteBookName;
   return (
     <div>
       <div className="notes-list-header">
-        <h2>{noteBookName}</h2>
+        <h2>{title}</h2>
         <div className="notes-list-actions">
           <button onClick={handleNewNote}>+</button>
         </div>
