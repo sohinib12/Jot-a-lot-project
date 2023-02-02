@@ -1,7 +1,25 @@
 .create-notebook-main-container {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 280px;
+    padding: 16px;
+    background-color: #171616;
+    gap: 12px
+}
+.update-notebook-main-container{
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 400px;
+    padding: 16px;
+    background-color: #171616;
+    gap: 12px
+}
+
+.delete-notebook-main-container {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
     padding: 16px;
     background-color: #171616;
     gap: 12px

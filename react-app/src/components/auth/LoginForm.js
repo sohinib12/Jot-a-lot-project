@@ -22,7 +22,7 @@ const LoginForm = () => {
         setErrors(data);
       } else {
         setErrors([]);
-        history.push("/home");
+        history.push("/");
       }
     });
   };
@@ -41,7 +41,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
 
   return (

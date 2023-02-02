@@ -6,7 +6,7 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 30px;
     justify-content: space-between;
 }
 
@@ -19,4 +19,12 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+.sidebar-navlink{
+    color: #fff
+}
+.sidebar-actions{
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: end;
 }

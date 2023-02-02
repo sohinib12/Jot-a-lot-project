@@ -1,8 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
 
-.main-background {
-  background: #D3DEEA;
+.main-background-404 {
+
+  background: #1c1919;
+  /* background: #D3DEEA; */
   /* background: #f1c9f7; */
   /* background: #5865f2; */
   /* background-image: url("../../images/bg-Img.png.jpg");
@@ -16,15 +18,15 @@
   flex-direction: column;
 }
 
-body {
+/* body {
   background: #D3DEEA;
-}
+} */
 
-.top {
+.top-404 {
   margin-top: 30px;
 }
 
-.container {
+.container-404 {
   margin: 0 auto;
   position: relative;
   width: 250px;
@@ -32,7 +34,7 @@ body {
   margin-top: -40px;
 }
 
-.ghost {
+.ghost-404{
   width: 50%;
   height: 53%;
   left: 25%;
@@ -45,7 +47,7 @@ body {
   animation: float 2s ease-out infinite;
 }
 
-.ghost-copy {
+.ghost-copy-404 {
   width: 50%;
   height: 53%;
   left: 25%;
@@ -60,13 +62,13 @@ body {
 }
 
 
-.face {
+.face-404 {
   position: absolute;
   width: 100%;
   height: 60%;
   top: 20%;
 }
-.eye, .eye-right {
+.eye-404, .eye-right-404 {
   position: absolute;
   background: #585959;
   width: 13px;
@@ -75,14 +77,14 @@ body {
   top: 40%;
 }
 
-.eye {
+.eye-404 {
   left: 25%;
 }
-.eye-right {
+.eye-right-404 {
   right: 25%;
 }
 
-.mouth {
+.mouth-404 {
   position:absolute;
   top: 50%;
   left: 41%;
@@ -94,7 +96,7 @@ body {
   transform: rotate(45deg);
 }
 
-.one, .two, .three, .four {
+.one-404, .two-404, .three-404, .four-404 {
   position: absolute;
   background: #EDEDED;
   top: 85%;
@@ -104,27 +106,27 @@ body {
   z-index: 0;
 }
 
-.one {
+.one-404 {
   border-radius: 0 0 100% 30%;
   left: -1px;
 }
 
-.two {
+.two-404 {
   left: 23%;
   border-radius: 0 0 50% 50%;
 }
 
-.three {
+.three-404 {
   left: 50%;
   border-radius: 0 0 50% 50%;
 }
 
-.four {
+.four-404 {
   left: 74.5%;
   border-radius: 0 0 30% 100%;
 }
 
-.shadow {
+.shadow-404 {
   position: absolute;
   width: 30%;
   height: 7%;
@@ -153,12 +155,13 @@ body {
   }
 }
 
-.bottom {
+.bottom-404 {
   margin-top: 10px;
 }
 
 /*text styling*/
-h1 {
+
+.top h1 {
   font-family: 'Abril Fatface', serif;;
   color: #EDEDED;
   text-align: center;
@@ -166,7 +169,7 @@ h1 {
   margin: 0;
   text-shadow: -1px 0 #BFC0C0, 0 1px #BFC0C0, 1px 0 #BFC0C0, 0 -1px #BFC0C0;
 }
-h3 {
+.top h3 {
   font-family: 'Lato', sans-serif;;
   font-size: 2em;
   text-transform: uppercase;
@@ -175,7 +178,7 @@ h3 {
   margin-top: -20px;
   font-weight: 900;
 }
-p {
+.top p {
   text-align: center;
   font-family: 'Lato', sans-serif;;
   color: #585959;
@@ -184,11 +187,11 @@ p {
   text-transform: uppercase;
 }
 
-.search {
+.search-404 {
   text-align: center;
 }
 
-.link-button {
+.link-button-404 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +200,7 @@ p {
 
 
 
-.btn {
+.btn-404 {
   background: #EDEDED;
   padding: 15px 20px;
   margin: 5px;
@@ -212,8 +215,7 @@ p {
     transition: all .4s ease-out;
   } */
 }
-.btn :hover {
+.btn-404 :hover {
     background: #BFC0C0;
     transition: all .4s ease-out;
 }
-

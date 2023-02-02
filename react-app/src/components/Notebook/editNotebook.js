@@ -29,7 +29,7 @@ export default function EditNotebook({notebook}) {
     }
 
   return (
-    <div className="create-notebook-main-container">
+    <div className="update-notebook-main-container">
       <div className="create-notebook-header">
         <h3>Edit your notebook</h3>
         <button onClick={() => closeModal()}>

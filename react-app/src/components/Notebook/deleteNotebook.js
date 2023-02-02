@@ -16,7 +16,7 @@ export default function DeleteNotebook({notebookId}) {
     }
 
   return (
-    <div className="create-notebook-main-container">
+    <div className="delete-notebook-main-container">
       <div className="create-notebook-header">
         <h3>Delete notebook?</h3>
         <button onClick={() => closeModal()}>
