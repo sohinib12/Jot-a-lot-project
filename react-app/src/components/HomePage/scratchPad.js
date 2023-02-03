@@ -57,7 +57,7 @@ export default function ScratchPad() {
         maxLength="700"
         value={scratchpad}
         onChange={(e) => setScratchpad(e.target.value)}
-        placeholder="Jot down your ideas here..."
+        placeholder="Draft your notes here..."
       />
     </div>
   );

@@ -54,8 +54,15 @@ export default function EditNotebook({ notebook }) {
         ></input>
       </div>
       <div className="create-notebook-actions">
-        <button onClick={() => closeModal()}>Cancel</button>
-        <button onClick={(e) => handleUpdateNotebook(e)}>Update</button>
+        <button className="evernote-btn" onClick={() => closeModal()}>
+          Cancel
+        </button>
+        <button
+          className="evernote-btn"
+          onClick={(e) => handleUpdateNotebook(e)}
+        >
+          Update
+        </button>
       </div>
     </div>
   );
