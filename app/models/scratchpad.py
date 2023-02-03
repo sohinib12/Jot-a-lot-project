@@ -2,7 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class Scratchpad(db.Model):
-    __tablename__ = 'scratchpad'
+    __tablename__ = 'scratchpads'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}

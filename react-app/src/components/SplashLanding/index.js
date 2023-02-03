@@ -20,7 +20,7 @@ export default function SplashLanding() {
           </div>
         </div>
         <div className="splash-login">
-          <Link to="/login">
+          <Link to="/login-page">
             <button>Login</button>
           </Link>
         </div>
@@ -45,23 +45,29 @@ export default function SplashLanding() {
           <img src={Evernote_splash_page} id="splash-img" alt="Splash Image" />{" "}
         </div>
         <div className="splash-text">
-          <div className="splash-txt-1">
-            <h3>WORK ANYWHERE</h3>
-            <h5>Access your notes from anywhere, on any device</h5>
+          <div className="splash-txt">
+            <div className="title">WORK ANYWHERE</div>
+            <div className="subtext">
+              Access your notes from anywhere, on any device
+            </div>
           </div>
-          <div className="splash-txt-2">
-            <h3>REMEMBER EVERYTHING</h3>
-            <h5>
+          <div className="splash-txt">
+            <div className="title">REMEMBER EVERYTHING</div>
+            <div className="subtext">
               Keep track of your ideas, to-dos, and inspiration in one place
-            </h5>
+            </div>
           </div>
-          <div className="splash-txt-3">
-            <h3>TURN TO-DO INTO DONE</h3>
-            <h5>Stay on top of your to-dos with reminders and due dates</h5>
+          <div className="splash-txt">
+            <div className="title">TURN TO-DO INTO DONE</div>
+            <div className="subtext">
+              Stay on top of your to-dos with reminders and due dates
+            </div>
           </div>
-          <div className="splash-txt-4">
-            <h3>FIND THINGS FAST</h3>
-            <h5>Search for notes, notebooks, and tags to find what you need</h5>
+          <div className="splash-txt">
+            <div className="title">FIND THINGS FAST</div>
+            <div className="subtext">
+              Search for notes, notebooks, and tags to find what you need
+            </div>
           </div>
         </div>
       </div>

@@ -87,8 +87,7 @@
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+    gap: 16px;
     width: 250px;
 }
 
@@ -96,24 +95,23 @@
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
     width: 250px;
 }
 
-.splash-text h3 {
+.splash-text .title {
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 1.5px;
     font-family: soleil,sans-serif;
 }
 
-.splash-text h5 {
+.splash-text .subtext {
     font-size: 16px;
     font-weight: 350;
     /* line-height: 40px; */
     /* padding-bottom: 30px; */
-    text-align: center;
     font-family: soleil,sans-serif;
 }
 
@@ -166,4 +164,12 @@
 
 .splash-login button:hover {
     background-color: #50be6d;
+}
+.splash-footer{
+    color: #000;
+    display: flex;
+    justify-content: flex-end;
+    /* flex-direction: row-reverse; */
+    margin-top: 32px;
+    gap: 16px;
 }

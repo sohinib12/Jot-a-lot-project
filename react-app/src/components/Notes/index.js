@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllNotesThunk } from "../../store/note";
 import { getNoteByIdThunk } from "../../store/note";
 import { useParams } from "react-router-dom";
-import { getNotebookByIdThunk } from "../../store/noteBook";
+import { getNotebookByIdThunk, getDefaultNotebookThunk } from "../../store/noteBook";
 
 export default function Notes() {
   // this is the state that will be used to store the id of the note that is clicked on
@@ -21,8 +21,10 @@ export default function Notes() {
 
   useEffect(() => {
     if (notebookId === "default") {
-      setSelectedNotebookId(1);
-      dispatch(getNotebookByIdThunk(1));
+      dispatch(getDefaultNotebookThunk()).then((data) => {
+        setSelectedNotebookId(data.notebookId);
+        dispatch(getNotebookByIdThunk(data.notebookId));
+      })
     } else {
       setSelectedNotebookId(notebookId);
       dispatch(getNotebookByIdThunk(notebookId));
@@ -35,7 +37,6 @@ export default function Notes() {
   };
 
   const handleNoteDelete = () => {
-    console.log("handleNoteDelete");
     let notebook = notebooks?.filter(
       (notebook) => parseInt(notebook.id) === parseInt(selectedNotebookId)
     )[0];

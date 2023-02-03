@@ -103,3 +103,17 @@
     background-color: #50be6d;
 }
 
+.logout-btn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.logout-btn:hover {
+    background-color: var(--green);
+}

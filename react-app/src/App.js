@@ -14,6 +14,7 @@ import SideBar from "./components/Sidebar";
 import SplashLanding from "./components/SplashLanding";
 import SingleNoteView from "./components/HomePage/singleNoteView";
 import NoteBook from "./components/Notebook";
+import UnderDevelopment from "./components/404Page/index.js";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,13 +35,13 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
-        <Route path="/" exact={true}>
+        <Route path="/login" exact={true}>
           <SplashLanding />
         </Route>
-        <Route path="/login">
+        <Route path="/login-page">
           <LoginForm />
         </Route>
-        <ProtectedRoute path="/home" exact={true}>
+        <ProtectedRoute path="/" exact={true}>
           <div id="main-components-container">
             <SideBar />
             <Home />
@@ -70,6 +71,9 @@ function App() {
             <NoteBook />
           </div>
         </ProtectedRoute>
+        <Route path="*">
+          <UnderDevelopment />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

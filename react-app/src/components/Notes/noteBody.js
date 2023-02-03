@@ -19,16 +19,33 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
   const history = useHistory();
 
   useEffect(() => {
+    console.log("i am here first useeffect");
     if (noteId === null) {
       setNoteContent("");
       setNoteTitle("");
     }
     if (noteId) dispatch(getNoteByIdThunk(noteId)).then(() => {});
+    return () => {
+      setNoteContent("");
+      setNoteTitle("");
+      setErrors([]);
+    };
   }, [noteId]);
 
   useEffect(() => {
-    setNoteContent(note.body);
-    setNoteTitle(note.title);
+    if (noteId === null) {
+      return;
+    }
+    if (noteId === note.id) {
+      setNoteContent(note.body);
+      setNoteTitle(note.title);
+    }
+
+    return () => {
+      setNoteContent("");
+      setNoteTitle("");
+      setErrors([]);
+    };
   }, [note]);
 
   const handleEdit = (e) => {
@@ -62,7 +79,9 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
       />
     );
   };
-
+  console.log(noteId);
+  console.log(noteTitle);
+  console.log(noteContent);
   return (
     <div className="notes-body">
       {Object.keys(note).length > 0 && (

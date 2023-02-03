@@ -3,7 +3,7 @@ from app.models import db, Notebook, environment, SCHEMA
 
 def seed_notebook():
     notebook1 = Notebook(
-        user_id=1, title='Default Notebook')
+        user_id=1, title='Default Notebook', is_default=True)
     notebook2 = Notebook(
         user_id=1, title='Demo Notebook')
     notebook3 = Notebook(
@@ -12,7 +12,7 @@ def seed_notebook():
         user_id=1, title='Test2 Notebook')
 
     notebook5 = Notebook(
-        user_id=2, title='Demo2 Notebook')
+        user_id=2, title='Demo2 Notebook', is_default=True)
     notebook6 = Notebook(
         user_id=2, title='Example2 Notebook')
     notebook7 = Notebook(
@@ -21,7 +21,7 @@ def seed_notebook():
         user_id=2, title='Demo3 Notebook')
 
     notebook9 = Notebook(
-        user_id=3, title='Example3 Notebook')
+        user_id=3, title='Example3 Notebook', is_default=True)
     notebook10 = Notebook(
         user_id=3, title='Test4 Notebook')
     notebook11 = Notebook(

@@ -181,7 +181,7 @@
     .delete-note-main-container {
         display: flex;
         flex-direction: column;
-        height: 400px;
+        height: 180px;
         padding: 16px;
         background-color: #171616;
         gap: 12px

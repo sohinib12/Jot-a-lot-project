@@ -5,6 +5,7 @@ const UPDATE_NOTEBOOK = "notebooks/updateNotebook";
 const DELETE_NOTEBOOK = "notebooks/deleteNotebook";
 const DELETE_NOTE_FROM_NOTEBOOK = "notes/deleteNoteFromNotebook";
 const UPDATE_NOTE_FROM_NOTEBOOK = "notes/updateNoteFromNotebook";
+const GET_DEFAULT_NOTEBOOK = "notebooks/getDefaultNotebook";
 
 export const getAllNotebooks = (notebooks) => ({
   type: GET_ALL_NOTEBOOKS,
@@ -40,6 +41,12 @@ export const deleteNoteFromNotebook = (notebookId, noteId) => ({
   type: DELETE_NOTE_FROM_NOTEBOOK,
   payload: { notebookId, noteId },
 });
+
+export const getDefaultNotebook = (notebookId) => ({
+  type: GET_DEFAULT_NOTEBOOK,
+  payload: notebookId,
+});
+
 
 export const getAllNotebooksThunk = () => async (dispatch) => {
   const res = await fetch("/api/notebooks/");
@@ -166,8 +173,25 @@ export const updateNoteFromNotebookThunk =
     return { errors: ["An error occurred. Please try again."] };
   };
 
+export const getDefaultNotebookThunk = () => async (dispatch) => {
+  const res = await fetch("/api/notebooks/default");
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(getDefaultNotebook(data.notebookId));
+    return data;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+  return { errors: ["An error occurred. Please try again."] };
+};
+
+
 const initialState = {
   allNotebooks: {},
+  defaultNotebookId: null
 };
 
 export default function noteBookReducer(state = initialState, action) {
@@ -237,6 +261,11 @@ export default function noteBookReducer(state = initialState, action) {
       return {
         ...state,
         allNotebooks: newState,
+      };
+    case GET_DEFAULT_NOTEBOOK:
+      return {
+        ...state,
+        defaultNotebookId: action.payload,
       };
 
     default:

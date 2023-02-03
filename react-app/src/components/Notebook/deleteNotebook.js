@@ -4,19 +4,19 @@ import { useModal } from "../../context/Modal";
 import { deleteNotebookThunk } from "../../store/noteBook";
 import "./createNotebook.css";
 
-export default function DeleteNotebook({notebookId}) {
+export default function DeleteNotebook({ notebookId }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-    const handleDeleteNotebook = (e) => {
-        e.preventDefault();
-        dispatch(deleteNotebookThunk(notebookId)).then(()=> {
-            closeModal();
-        })
-    }
+  const handleDeleteNotebook = (e) => {
+    e.preventDefault();
+    dispatch(deleteNotebookThunk(notebookId)).then(() => {
+      closeModal();
+    });
+  };
 
   return (
-    <div className="create-notebook-main-container">
+    <div className="delete-notebook-main-container">
       <div className="create-notebook-header">
         <h3>Delete notebook?</h3>
         <button onClick={() => closeModal()}>
@@ -24,11 +24,19 @@ export default function DeleteNotebook({notebookId}) {
         </button>
       </div>
       <div className="create-notebook-info">
-      Any notes in the notebook will be deleted permanently. This cannot be undone.
+        Any notes in the notebook will be deleted permanently. This cannot be
+        undone.
       </div>
       <div className="create-notebook-actions">
-        <button onClick={() => closeModal()}>Cancel</button>
-        <button onClick={(e) => handleDeleteNotebook(e)}>Delete</button>
+        <button className="evernote-btn" onClick={() => closeModal()}>
+          Cancel
+        </button>
+        <button
+          className="evernote-btn"
+          onClick={(e) => handleDeleteNotebook(e)}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
