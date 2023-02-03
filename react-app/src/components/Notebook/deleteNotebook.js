@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { deleteNotebookThunk } from "../../store/noteBook";
@@ -7,11 +7,17 @@ import "./createNotebook.css";
 export default function DeleteNotebook({ notebookId }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
+  const [errorValidations, setErrorValidations] = useState([]);
 
   const handleDeleteNotebook = (e) => {
     e.preventDefault();
-    dispatch(deleteNotebookThunk(notebookId)).then(() => {
-      closeModal();
+    dispatch(deleteNotebookThunk(notebookId)).then((data) => {
+      if (data) {
+        setErrorValidations(data);
+      } else {
+        setErrorValidations([]);
+        closeModal();
+      }
     });
   };
 
@@ -26,6 +32,13 @@ export default function DeleteNotebook({ notebookId }) {
       <div className="create-notebook-info">
         Any notes in the notebook will be deleted permanently. This cannot be
         undone.
+      </div>
+      <div>
+        <ul className="error-li">
+          {errorValidations.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
       </div>
       <div className="create-notebook-actions">
         <button className="evernote-btn" onClick={() => closeModal()}>

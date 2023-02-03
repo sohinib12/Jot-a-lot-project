@@ -47,7 +47,6 @@ export const getDefaultNotebook = (notebookId) => ({
   payload: notebookId,
 });
 
-
 export const getAllNotebooksThunk = () => async (dispatch) => {
   const res = await fetch("/api/notebooks/");
   if (res.ok) {
@@ -87,7 +86,7 @@ export const createNotebookThunk = (notebookName) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(createNotebook(data));
-    return data;
+    return null;
   } else if (res.status < 500) {
     const data = await res.json();
     if (data.errors) {
@@ -106,7 +105,7 @@ export const updateNotebookThunk = (notebook) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(updateNotebook(data));
-    return data;
+    return null;
   } else if (res.status < 500) {
     const data = await res.json();
     if (data.errors) {
@@ -123,7 +122,7 @@ export const deleteNotebookThunk = (notebookId) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(deleteNotebook(notebookId));
-    return data;
+    return null;
   } else if (res.status < 500) {
     const data = await res.json();
     if (data.errors) {
@@ -188,10 +187,9 @@ export const getDefaultNotebookThunk = () => async (dispatch) => {
   return { errors: ["An error occurred. Please try again."] };
 };
 
-
 const initialState = {
   allNotebooks: {},
-  defaultNotebookId: null
+  defaultNotebookId: null,
 };
 
 export default function noteBookReducer(state = initialState, action) {

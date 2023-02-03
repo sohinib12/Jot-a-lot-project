@@ -19,7 +19,6 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("i am here first useeffect");
     if (noteId === null) {
       setNoteContent("");
       setNoteTitle("");
@@ -58,11 +57,9 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
     };
     dispatch(updateNoteFromNotebookThunk(notebookId, editedNote)).then(
       (data) => {
-        console.log("data: ", data);
         if (data) {
           setErrors(data);
         } else {
-          console.log("no errors");
           setErrors([]);
         }
       }
@@ -80,11 +77,9 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
     );
   };
   console.log(noteId);
-  console.log(noteTitle);
-  console.log(noteContent);
   return (
     <div className="notes-body">
-      {Object.keys(note).length > 0 && (
+      {noteId && Object.keys(note).length > 0 && (
         <>
           <div className="notes-body-actions">
             <div className="error-form">
@@ -99,12 +94,14 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
               value={noteTitle}
               placeholder="Title"
               onChange={(e) => setNoteTitle(e.target.value)}
+              disabled={noteId === null}
             ></input>
             <textarea
               className="body-text-area"
               value={noteContent}
               placeholder="Take a note..."
               onChange={(e) => setNoteContent(e.target.value)}
+              disabled={noteId === null}
             ></textarea>
           </div>
           {/* <ToDoTemplate /> */}
