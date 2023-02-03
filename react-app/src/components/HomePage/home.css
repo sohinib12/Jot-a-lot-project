@@ -164,3 +164,27 @@
     padding: 8px;
     font-family: Source Sans Pro,-apple-system,system-ui,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
+
+
+/* scratchpad-css-styles */
+
+.scratch-textarea {
+    border: none;
+    background-color: var(--notes-body);
+    color: aliceblue;
+    font-size: 16px;
+    padding: 8px;
+    flex-grow: 100;
+    outline: none;
+}
+
+.scratch-main-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 8px;
+}
+.scratch-actions{
+    justify-content: flex-end;
+    display: flex;
+}

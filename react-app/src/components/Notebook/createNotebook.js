@@ -55,8 +55,8 @@ export default function CreateNotebook() {
         ></input>
       </div>
       <div className="create-notebook-actions">
-        <button onClick={() => closeModal()}>Cancel</button>
-        <button onClick={(e) => handleCreateNotebook(e)}>Create</button>
+        <button className="evernote-btn" onClick={() => closeModal()}>Cancel</button>
+        <button className="evernote-btn" onClick={(e) => handleCreateNotebook(e)}>Create</button>
       </div>
     </div>
   );
