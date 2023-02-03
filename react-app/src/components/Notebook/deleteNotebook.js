@@ -41,8 +41,15 @@ export default function DeleteNotebook({ notebookId }) {
         </ul>
       </div>
       <div className="create-notebook-actions">
-        <button onClick={() => closeModal()}>Cancel</button>
-        <button onClick={(e) => handleDeleteNotebook(e)}>Delete</button>
+        <button className="evernote-btn" onClick={() => closeModal()}>
+          Cancel
+        </button>
+        <button
+          className="evernote-btn"
+          onClick={(e) => handleDeleteNotebook(e)}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

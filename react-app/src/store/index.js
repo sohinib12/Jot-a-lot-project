@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session";
 import noteReducer from "./note";
 import noteBookReducer from "./noteBook";
+import scratchpadReducer from "./scratchpad";
 
 const rootReducer = combineReducers({
   session,
   notes: noteReducer,
   notebooks: noteBookReducer,
+  scratchpad: scratchpadReducer,
 });
 
 let enhancer;
