@@ -53,6 +53,7 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
     history.push(`/notebook/${notebookId}`);
   };
 
+  console.log(Object.values(notebooks));
   return (
     <div className="notebook-table">
       <table>
@@ -100,16 +101,19 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
                   >
                     <i className="fa-solid fa-pen-to-square"></i>
                   </button>
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setModalContent(
-                        <DeleteNotebook notebookId={notebook.id} />
-                      );
-                    }}
-                  >
-                    <i className="fa-solid fa-trash"></i>
-                  </button>
+                  {notebook.is_default ? null : (
+                      <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setModalContent(
+                          <DeleteNotebook notebookId={notebook.id} />
+                        );
+                      }}
+                    >
+                      <i className="fa-solid fa-trash"></i>
+                    </button>
+                  )}
+
                 </td>
               </tr>
               {activeIndex.includes(index) && (
