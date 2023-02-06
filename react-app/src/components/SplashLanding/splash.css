@@ -173,3 +173,9 @@
     margin-top: 32px;
     gap: 16px;
 }
+
+.rightside-footer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}

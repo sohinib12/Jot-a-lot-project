@@ -77,14 +77,14 @@ export default function SplashLanding() {
         <div className="rightside-footer">
           <a
             className="link-footer"
-            href="https://www.linkedin.com/in/sohini-bonthala-9373b2111/"
+            href="https://www.linkedin.com/in/sohini-bonthala-9373b2111/" rel="noreferrer" target="_blank"
           >
-            <i
-              className="fa-brands fa-linkedin fa-xl"
-              href="https://github.com/sohinib12"
+            <i className="fa-brands fa-linkedin fa-xl"
             />
           </a>
-          <a className="link-footer">
+          <a className="link-footer"
+              href="https://github.com/sohinib12/Jot-a-lot-project" rel="noreferrer" target="_blank"
+              >
             <i className="fa-brands fa-github fa-xl" />
           </a>
         </div>
