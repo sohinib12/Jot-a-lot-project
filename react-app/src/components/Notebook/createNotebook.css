@@ -66,17 +66,3 @@
     display: flex;
     justify-content: flex-end;
 }
-
-.create-notebook-actions button {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 12px;
-    padding: 8px;
-    outline: none;
-
-}
-
-.create-notebook-actions button:hover {
-    background-color: var(--green);
-  }

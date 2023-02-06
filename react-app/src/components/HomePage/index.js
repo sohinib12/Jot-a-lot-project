@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllNotesThunk, getNoteByIdThunk } from "../../store/note";
 import { useHistory } from "react-router-dom";
+import ScratchPad from "./scratchPad";
 
 export default function Home() {
   const user = useSelector((state) => state.session.user);
@@ -77,8 +78,7 @@ export default function Home() {
           </div>
         </div>
         <div className="home-scratchpad">
-          scratch pad
-          {/* <ScratchPad user={user} /> */}
+          <ScratchPad user={user} />
           </div>
       </div>
     </div>
