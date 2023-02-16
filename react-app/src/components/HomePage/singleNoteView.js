@@ -1,12 +1,17 @@
 import "./home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 import {
   deleteNoteThunk,
   updateNoteThunk,
   getNoteByIdThunk,
 } from "../../store/note";
-import { useState, useEffect } from "react";
+import modules from "../../quillSettings";
+
 // import ToDoTemplate from "./toDoTemplate";
 
 export default function SingleNoteView() {
@@ -63,12 +68,18 @@ export default function SingleNoteView() {
           placeholder="Title"
           onChange={(e) => setNoteTitle(e.target.value)}
         ></input>
-        <textarea
+        <ReactQuill
+          theme="snow"
+          value={noteContent}
+          onChange={setNoteContent}
+          modules={modules}
+        />
+        {/* <textarea
           className="single-note-body-text-area"
           value={noteContent}
           placeholder="Take a note..."
           onChange={(e) => setNoteContent(e.target.value)}
-        ></textarea>
+        ></textarea> */}
       </div>
     </div>
     // <div className="single-note-main-container">
