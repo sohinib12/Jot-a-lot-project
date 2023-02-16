@@ -99,6 +99,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    gap:8px;
 }
 
 .body-text-area {
@@ -221,4 +222,12 @@
 
     .delete-note-actions button:hover {
         background-color: var(--green);
+      }
+
+      .ql-container {
+        height: 70vh;
+        font-size: 16px !important;
+      }
+      .quill {
+        height: 75%;
       }
