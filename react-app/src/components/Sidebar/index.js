@@ -19,7 +19,7 @@ export default function Sidebar() {
         </div>
         <div>
           <NavLink className="sidebar-navlink" to="/notebooks">
-            <i className="fa-solid fa-book"></i> Notebooks
+            <i className="fa-solid fa-folder"></i> Notebooks
           </NavLink>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import "./Notes.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { getNoteByIdThunk } from "../../store/note";
 import { useState, useEffect } from "react";
 import DeleteNoteModal from "./deleteNoteModal";
 import { useModal } from "../../context/Modal";
 import { updateNoteFromNotebookThunk } from "../../store/noteBook";
+import modules from "../../quillSettings";
 // import ToDoTemplate from "./toDoTemplate";
 
 export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
@@ -96,13 +99,21 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
               onChange={(e) => setNoteTitle(e.target.value)}
               disabled={noteId === null}
             ></input>
-            <textarea
+
+            <ReactQuill
+              theme="snow"
+              value={noteContent}
+              onChange={setNoteContent}
+              modules={modules}
+            />
+
+            {/* <textarea
               className="body-text-area"
               value={noteContent}
               placeholder="Take a note..."
               onChange={(e) => setNoteContent(e.target.value)}
               disabled={noteId === null}
-            ></textarea>
+            ></textarea> */}
           </div>
           {/* <ToDoTemplate /> */}
         </>
