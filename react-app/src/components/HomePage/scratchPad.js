@@ -34,6 +34,7 @@ export default function ScratchPad() {
   const handleClear = (e) => {
     e.preventDefault();
     setScratchpad("");
+    dispatch(updateScratchpadThunk(""));
   };
   return (
     <div className="scratch-main-container">
