@@ -53,7 +53,7 @@ export default function NotebookTable({ notebooks = [], noteDelete }) {
     history.push(`/notebook/${notebookId}`);
   };
 
-  console.log(Object.values(notebooks));
+  
   return (
     <div className="notebook-table">
       <table>

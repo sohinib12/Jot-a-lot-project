@@ -20,7 +20,6 @@ export default function ScratchPad() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("scratchpadState", scratchpadState);
     if (Object.keys(scratchpadState).length > 0) {
       setScratchpad(Object.values(scratchpadState)[0].content);
     }

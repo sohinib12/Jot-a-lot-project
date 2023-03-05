@@ -11,10 +11,8 @@ export default function CreateNotebook() {
   const { closeModal } = useModal();
 
   const handleCreateNotebook = (e) => {
-    console.log("getting here");
     e.preventDefault();
     dispatch(createNotebookThunk(notebookName)).then((data) => {
-      console.log("data", data);
       if (data) {
         setErrorValidations(data);
       } else {
