@@ -255,7 +255,6 @@ export default function noteBookReducer(state = initialState, action) {
         notebookId
       ].notes.filter((note) => note.id !== noteId);
       newState[action.payload.notebookId].notes.push(action.payload.note);
-      console.log(newState);
       return {
         ...state,
         allNotebooks: newState,

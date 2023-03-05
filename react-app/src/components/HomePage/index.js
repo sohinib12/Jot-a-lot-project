@@ -20,7 +20,6 @@ export default function Home() {
   const handleNoteClick = (e, note) => {
     e.preventDefault();
     dispatch(getNoteByIdThunk(note.id)).then(() => {
-      console.log("note clicked", note.id);
       history.push(`/notes/${note.id}`);
     });
   };
@@ -39,7 +38,6 @@ export default function Home() {
   const day = days[date.getUTCDay()];
   const month = months[date.getUTCMonth()];
   const dateString = `${day}, ${date.getUTCDate()} ${month}, ${date.getUTCFullYear()}`;
-  // console.log(dateString);
 
   return (
     <div className="home-container">

@@ -59,7 +59,7 @@ export default function Notes() {
     });
   };
 
-  console.log("notebooks", notebooks);
+
   const notebook = notebooks?.filter(
     (notebook) => parseInt(notebook.id) === parseInt(selectedNotebookId)
   )[0];

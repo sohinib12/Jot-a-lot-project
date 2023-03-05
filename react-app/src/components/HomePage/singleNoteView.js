@@ -2,6 +2,8 @@ import "./home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import DeleteSingleNoteModal from "./deleteSingleNoteModal";
+import { useModal } from "../../context/Modal";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -16,6 +18,7 @@ import modules from "../../quillSettings";
 
 export default function SingleNoteView() {
   const note = useSelector((state) => state.notes.singleNote);
+  const { setModalContent } = useModal();
   const [noteContent, setNoteContent] = useState("");
   const [noteTitle, setNoteTitle] = useState("");
   const { noteId } = useParams();
@@ -24,7 +27,6 @@ export default function SingleNoteView() {
 
   useEffect(() => {
     if (noteId === null) {
-      console.log("clear the body");
       setNoteContent("");
       setNoteTitle("");
     }
@@ -47,12 +49,19 @@ export default function SingleNoteView() {
     dispatch(updateNoteThunk(editedNote));
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
+  const deleteCallBack = () => {
     dispatch(deleteNoteThunk(note.id)).then(() => {
-      console.log("deleted");
       history.push("/");
     });
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    setModalContent(
+      <DeleteSingleNoteModal
+        deleteCallBack={deleteCallBack}
+      />
+    );
   };
 
   return (

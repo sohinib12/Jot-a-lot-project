@@ -1,17 +1,26 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import { useHistory } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import LogoutModal from "./logoutModal";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const state = useSelector((state) => state);
-  const user = useSelector((state) => state.session.user);
+  const {setModalContent} = useModal();
+
+  const handleLogout = async (e) => {
+    await dispatch(logout());
+    history.push("/");
+  }
 
   const onLogout = async (e) => {
-    await dispatch(logout());
-    return history.push("/");
+    setModalContent(
+      <LogoutModal
+      onLogout={handleLogout}
+      />
+    )
   };
 
   return (

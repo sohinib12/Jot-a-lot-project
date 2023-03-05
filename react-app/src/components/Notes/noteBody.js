@@ -79,7 +79,7 @@ export default function NoteBody({ noteId, handleNoteDelete, notebookId }) {
       />
     );
   };
-  console.log(noteId);
+ 
   return (
     <div className="notes-body">
       {noteId && Object.keys(note).length > 0 && (
