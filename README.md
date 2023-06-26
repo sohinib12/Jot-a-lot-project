@@ -1,6 +1,6 @@
 # Jot-a-lot
 
-Jot-a-lot is a note-taking app, inspired from Evernote
+Jot-a-lot is a note-taking app, inspired by Evernote
 
 
 ## Features
