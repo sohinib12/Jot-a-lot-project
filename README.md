@@ -25,7 +25,7 @@ Jot-a-lot is a note-taking app, inspired by Evernote
 ## Local Installation
 1. Clone the repository
 
-HTTPS:
+HTTP:
 ```bash
 git clone https://github.com/sohinib12/Jot-a-lot-project.git
 ```
