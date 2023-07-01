@@ -7,7 +7,7 @@ Jot-a-lot is a note-taking app, inspired by Evernote
 - Notes
 - Notebooks
 - Scratchpad
-- Integration with ChatGPT
+- Integration ChatGPT
 
 ## Technologies Used
 - Flask: Backend framework for building web applications.
